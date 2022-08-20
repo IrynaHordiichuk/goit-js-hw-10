@@ -14,7 +14,7 @@ console.log(countriesInput);
 countriesInput.addEventListener('input', debounce(inputHandler, DEBOUNCE_DELAY));
 
 function inputHandler(event) {
-countriesInput.innerHTML = '';
+countriesList.innerHTML = '';
 countriesDiv.innerHTML = '';
   let name = event.target.value.trim(' ');
   if(!name) {
@@ -42,17 +42,15 @@ function renderListBig(countries) {
   const markup = countries
     .map(item => {
       return `
-            <li>
               <img src="${item.flags.svg}"width=90px>
               <p>${item.name.official}</p>
               <p>Capital: ${item.capital}</p>
               <p>Population: ${item.population}</p>
               <p>Languages: ${Object.values(item.languages)}</p>
-            </li>
         `;
     })
     .join('');
-  countriesList.innerHTML = markup;
+  countriesDiv.innerHTML = markup;
 }
 
 function renderListSmall(countries) {
@@ -66,7 +64,7 @@ function renderListSmall(countries) {
         `;
     })
     .join('');
-  countriesDiv.innerHTML = markup;
+  countriesList.innerHTML = markup;
 }
 
 
