@@ -7,14 +7,17 @@ const DEBOUNCE_DELAY = 300;
 
 const countriesInput = document.querySelector('#search-box');
 const countriesList = document.querySelector('.country-list');
+const countriesDiv = document.querySelector('.country-info');
 
+
+console.log(countriesInput);
 countriesInput.addEventListener('input', debounce(inputHandler, DEBOUNCE_DELAY));
 
 function inputHandler(event) {
-
+countriesInput.innerHTML = '';
+countriesDiv.innerHTML = '';
   let name = event.target.value.trim(' ');
   if(!name) {
-    countriesList.innerHTML = '';
     return
   }
    
@@ -63,7 +66,7 @@ function renderListSmall(countries) {
         `;
     })
     .join('');
-  countriesList.innerHTML = markup;
+  countriesDiv.innerHTML = markup;
 }
 
 
