@@ -65,3 +65,5 @@ function renderListSmall(countries) {
     .join('');
   countriesList.innerHTML = markup;
 }
+
+
